@@ -1,0 +1,54 @@
+@use 'indicator-ui' as *;
+
+.tableCell {
+  flex: 1;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+
+  padding: 4px;
+  gap: 4px;
+
+  .description {
+    text-align: start;
+    @include fnt($size: 14, $line-height: 16, $weight: 400, $color: var(--gray-500));
+  }
+
+  .field {
+    text-align: start;
+    @include fnt($size: 14, $line-height: 16, $weight: 400, $color: var(--gray-900));
+  }
+
+  .link {
+    cursor: pointer;
+    text-align: start;
+    @include fnt($size: 14, $line-height: 16, $weight: 400, $color: var(--blue-dark-500));
+    text-decoration: underline;
+    text-underline: 1px solid var(--blue-dark-500);
+  }
+
+  .status {
+    flex: none;
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    &.statusRed {
+      background-color: var(--error-400);
+    }
+
+    &.statusGreen {
+      background-color: var(--moss-400);
+    }
+
+    &.statusYellow {
+      background-color: var(--yellow-400);
+    }
+
+    &.statusGray {
+      background-color: var(--gray-400);
+    }
+  }
+}

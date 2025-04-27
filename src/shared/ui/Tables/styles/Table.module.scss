@@ -1,0 +1,16 @@
+@use 'src/shared/styles' as *;
+
+.table {
+  width: 100%;
+  height: fit-content;
+
+  thead {
+    width: 100%;
+    height: fit-content;
+  }
+
+  tbody {
+    width: 100%;
+    height: fit-content;
+  }
+}

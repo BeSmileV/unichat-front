@@ -1,0 +1,32 @@
+@use 'src/shared/styles' as *;
+
+.tableRow {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  cursor: pointer;
+
+  &:hover {
+    border-radius: 4px;
+    background-color: $media-50;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 1px $media-200;
+    z-index: 1;
+  }
+
+  &.gray {
+    background-color: $gray-100;
+  }
+
+  &.description {
+    cursor: default;
+
+    &:hover {
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  }
+}

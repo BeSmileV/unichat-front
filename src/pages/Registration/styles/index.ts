@@ -1,0 +1,1 @@
+export {default as RegistrationPageStyle} from './RegistrationPage.module.scss'
