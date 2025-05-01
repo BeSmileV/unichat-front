@@ -1,4 +1,4 @@
-@use 'src/shared/styles' as *;
+@use 'indicator-ui' as *;
 
 .tableRow {
   position: relative;
@@ -10,14 +10,14 @@
 
   &:hover {
     border-radius: 4px;
-    background-color: $media-50;
+    background-color: var(--blue-dark-50);
     box-sizing: border-box;
-    box-shadow: 0 0 0 1px $media-200;
+    box-shadow: 0 0 0 1px var(--blue-dark-200);
     z-index: 1;
   }
 
   &.gray {
-    background-color: $gray-100;
+    background-color: var(--gray-100);
   }
 
   &.description {

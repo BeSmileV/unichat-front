@@ -28,7 +28,9 @@ const nextConfig: NextConfig = {
         }
 
         return config;
-    }
+    },
+    // reactStrictMode: false,
+    output: 'standalone',
 };
 
 export default nextConfig;
