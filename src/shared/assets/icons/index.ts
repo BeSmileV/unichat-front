@@ -1,1 +1,8 @@
 export {default as LogoSVG} from './Logo.svg'
+export {default as Building07SVG} from './building-07.svg'
+export {default as Atom01SVG} from './atom-01.svg'
+export {default as Glasses02SVG} from './glasses-02.svg'
+export {default as CompassSVG} from './compass.svg'
+export {default as Link02SVG} from './link-02.svg'
+export {default as Users01SVG} from './users-01.svg'
+export {default as GraduationHat01SVG} from './graduation-hat-01.svg'

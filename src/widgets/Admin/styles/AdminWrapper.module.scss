@@ -1,0 +1,12 @@
+@use 'indicator-ui' as *;
+
+.AdminWrapper {
+  width: 100%;
+  height: 100%;
+  @include modify-flex();
+
+  .content {
+    flex: 1;
+    height: 100%;
+  }
+}

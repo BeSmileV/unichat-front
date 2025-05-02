@@ -1,5 +1,6 @@
 'use client'
 
+import {signIn} from "next-auth/react";
 import {useRef, useState} from "react";
 import {Button, UseIsErrorFieldIsErrorType} from "indicator-ui";
 import {LogoSVG} from "@/shared/assets/icons";
@@ -10,6 +11,19 @@ import {LoginPageStyle} from "../styles";
 export function LoginPage() {
     const formDataRef = useRef<LoginRequestType | undefined>(undefined)
     const [isError, setIsError] = useState<UseIsErrorFieldIsErrorType>([])
+
+    const onLogin = async () => {
+        const response = await signIn("credentials", {
+            ...formDataRef.current,
+            redirect: false
+        })
+        if(response.error) {
+            // Обработка ошибки аутентификации
+        } else {
+            // Успешная аутентификации
+        }
+
+    }
 
     return (
         <div className={LoginPageStyle.LoginPage}>
@@ -24,7 +38,8 @@ export function LoginPage() {
                         hierarchy={'primary'}
                         text={'Войти'}
                         disabled={isError.length > 0}
-                        width={'fill'}/>
+                        width={'fill'}
+                        onClick={onLogin}/>
             </div>
         </div>
     )

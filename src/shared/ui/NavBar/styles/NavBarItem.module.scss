@@ -1,0 +1,52 @@
+@use 'indicator-ui' as *;
+
+.NavBarItem {
+  width: 100%;
+  padding: 8px 16px;
+  gap: 8px;
+  transition: background-color ease-out 300ms;
+  @include modify-flex($align-items: center);
+
+  .label {
+    flex: 1;
+    text-align: start;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include fnt($size: 14, $line-height: 16, $weight: 400, $color: var(--gray-700));
+  }
+
+  .icon {
+    width: fit-content;
+    height: fit-content;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: var(--base-white);
+    @include centerInsideContent;
+    @include modify-svg($stroke: var(--gray-500)) {
+      flex: none;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &:hover {
+    background-color: var(--gray-200);
+  }
+
+  &.active {
+    background-color: var(--gray-100);
+
+    .label {
+      @include fnt-flex($color: var(--blue-dark-400));
+    }
+
+    .icon {
+      @include modify-svg($stroke: var(--blue-dark-500));
+    }
+
+    &:hover {
+      background-color: var(--blue-dark-100);
+    }
+  }
+}

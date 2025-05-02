@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.7.0",
     "clsx": "^2.1.1",
     "indicator-ui": "^0.0.229",
+    "jwt-decode": "^4.0.0",
     "next": "15.3.1",
+    "next-auth": "^5.0.0-beta.27",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-imask": "^7.6.1"
+    "react-imask": "^7.6.1",
+    "react-redux": "^9.2.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

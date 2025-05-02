@@ -5,7 +5,7 @@ export function schema(): FORM_BUILDER_SCHEMA {
         {
             type: 'input_field',
             props: {
-                name: 'email',
+                name: 'username',
                 type: 'email',
                 labelText: 'Email',
                 required: true,

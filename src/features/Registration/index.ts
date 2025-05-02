@@ -1,2 +1,4 @@
 export * from './ui'
 export * from './schemes'
+export * from './config'
+export * from './schemes'

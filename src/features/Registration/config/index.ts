@@ -1,0 +1,1 @@
+export const REGISTRATION_TYPE_PARAM_NAME = 'type'

@@ -1,0 +1,1 @@
+export {default as AdminWrapperStyle} from './AdminWrapper.module.scss'

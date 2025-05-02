@@ -1,9 +1,11 @@
 import {Metadata} from "next";
+import {AdminWrapper} from "@/widgets/Admin";
+import React, {Suspense} from "react";
 
 export const metadata: Metadata = {
-    title: 'Админка',
+    title: 'Админ панель',
 }
 
 export default function Layout({children}: { children?: React.ReactNode }) {
-    return children
+    return <Suspense><AdminWrapper children={children}/></Suspense>
 }

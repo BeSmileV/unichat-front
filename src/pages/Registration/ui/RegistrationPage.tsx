@@ -1,15 +1,31 @@
 'use client'
 
-import {Button, UseIsErrorFieldIsErrorType} from "indicator-ui";
-import {RegistrationForm} from "@/features/Registration";
-import {useRef, useState} from "react";
-import {RegistrationRequestType} from "@/entity/Registration";
-import {LogoSVG} from "@/shared/assets/icons";
-import {RegistrationPageStyle} from "@/pages/Registration/styles";
+import {useSearchParamsListener} from "@/shared/hooks";
+import {LogoSVG} from "@/shared/assets";
+import {REGISTRATION_TYPE_PARAM_NAME} from "@/features/Registration";
+import {RegistrationTypesType} from "@/features/Registration/types";
+import {
+    RegistrationStudentWidget,
+    RegistrationTeacherWidget,
+    RegistrationUniversityWidget
+} from "@/widgets/Registration";
+import {RegistrationPageStyle} from "../styles";
 
 export function RegistrationPage() {
-    const formDataRef = useRef<RegistrationRequestType | undefined>(undefined)
-    const [isError, setIsError] = useState<UseIsErrorFieldIsErrorType>([])
+    const {getSearchParams} = useSearchParamsListener()
+
+    const getForm = () => {
+        const type = getSearchParams(REGISTRATION_TYPE_PARAM_NAME) as RegistrationTypesType
+        switch (type) {
+            case "teacher":
+                return <RegistrationTeacherWidget/>
+            case "student":
+                return <RegistrationStudentWidget/>
+            case "university":
+            default:
+                return <RegistrationUniversityWidget/>
+        }
+    }
 
     return (
         <div className={RegistrationPageStyle.RegistrationPage}>
@@ -19,12 +35,7 @@ export function RegistrationPage() {
             </div>
             <div className={RegistrationPageStyle.field}>
                 <h1 className={RegistrationPageStyle.header}>Регистрация</h1>
-                <RegistrationForm onChangeFormData={(data) => formDataRef.current = data} onChangeIsError={setIsError}/>
-                <Button size={'large'}
-                        hierarchy={'primary'}
-                        text={'Зарегистрироваться'}
-                        disabled={isError.length > 0}
-                        width={'fill'}/>
+                {getForm()}
             </div>
         </div>
     )

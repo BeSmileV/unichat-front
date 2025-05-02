@@ -1,0 +1,1 @@
+export {default as AdminListPageStyle} from './AdminListPage.module.scss'
