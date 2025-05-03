@@ -7,7 +7,7 @@ import {AdminWrapperStyle} from '../styles'
 export function AdminWrapper({children}: { children?: React.ReactNode }) {
     const tabs: NavBarTabsType = [
         {icon: <Atom01SVG/>, label: 'Институты', url: ROUTES_CONFIG.ADMIN_INSTITUTE},
-        {icon: <CompassSVG/>, label: 'Кафедра', url: ROUTES_CONFIG.ADMIN_DEPARTMENT},
+        {icon: <CompassSVG/>, label: 'Кафедры', url: ROUTES_CONFIG.ADMIN_DEPARTMENT},
         {icon: <Users01SVG/>, label: 'Группы', url: ROUTES_CONFIG.ADMIN_GROUPS},
         {icon: <Glasses02SVG/>, label: 'Учителя', url: ROUTES_CONFIG.ADMIN_TEACHER},
         {icon: <GraduationHat01SVG/>, label: 'Студенты', url: ROUTES_CONFIG.ADMIN_STUDENT},

@@ -23,9 +23,9 @@
   .link {
     cursor: pointer;
     text-align: start;
-    @include fnt($size: 14, $line-height: 16, $weight: 400, $color: var(--blue-dark-500));
     text-decoration: underline;
     text-underline: 1px solid var(--blue-dark-500);
+    @include fnt($size: 14, $line-height: 16, $weight: 400, $color: var(--blue-dark-500));
   }
 
   .status {

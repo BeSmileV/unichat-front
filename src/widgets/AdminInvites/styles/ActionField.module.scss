@@ -1,0 +1,53 @@
+@use 'indicator-ui' as *;
+
+.ActionField {
+  width: 100%;
+  height: fit-content;
+  padding: 8px 16px;
+  gap: 16px;
+  border-radius: 12px;
+  background-color: var(--gray-50);
+  transition: background-color ease-out 300ms;
+  overflow: hidden;
+  @include modify-flex();
+
+  .icon {
+    @include centerInsideContent;
+    @include modify-svg($stroke: var(--gray-400)) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .chevron {
+    @include centerInsideContent;
+    @include modify-svg($stroke: var(--gray-400)) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .content {
+    flex: 1;
+    overflow: hidden;
+    @include modify-flex($direction: column);
+
+    .title, .subtitle {
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .title {
+      @include fnt($size: 14, $line-height: 20, $weight: 400, $color: var(--gray-900));
+    }
+
+    .subtitle {
+      @include fnt($size: 14, $line-height: 20, $weight: 400, $color: var(--gray-500));
+    }
+  }
+
+  &:hover {
+    background-color: var(--gray-100);
+  }
+}

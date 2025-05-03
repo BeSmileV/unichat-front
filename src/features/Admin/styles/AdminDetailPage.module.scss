@@ -1,0 +1,48 @@
+@use 'indicator-ui' as *;
+
+.AdminDetailPage {
+  width: 100%;
+  height: 100%;
+  padding: 16px 32px;
+  gap: 32px;
+  @include modify-flex();
+
+  .content {
+    width: 480px;
+    height: fit-content;
+    gap: 16px;
+    @include modify-flex($direction: column);
+
+    .header {
+      @include fnt($size: 24, $line-height: 32, $weight: 600, $color: var(--gray-900));
+    }
+
+    &.fill {
+      width: 100%;
+    }
+  }
+
+  .action {
+    width: 480px;
+    height: fit-content;
+    gap: 16px;
+    padding: 24px 32px 32px 32px;
+    border-radius: 16px;
+    background-color: var(--gray-50);
+    @include modify-flex($direction: column);
+
+    .header {
+      @include fnt($size: 24, $line-height: 32, $weight: 600, $color: var(--gray-900));
+    }
+  }
+
+  .modalWindowWrapper {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    @include centerInsideContent;
+  }
+}

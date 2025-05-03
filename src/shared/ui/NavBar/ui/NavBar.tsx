@@ -9,7 +9,7 @@ export function NavBar({tabs = []}: NavBarPropsType) {
     const pathname = usePathname()
 
     const isActive = (url?: string) => {
-        return !!(pathname && url) && url.startsWith(pathname)
+        return !!(pathname && url) && pathname.startsWith(url)
     }
 
     return (
