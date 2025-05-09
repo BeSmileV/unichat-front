@@ -1,32 +1,28 @@
 import {FORM_BUILDER_SCHEMA} from "indicator-ui";
 
-export function teacherSchema({password}:{ password?: string } = {}): FORM_BUILDER_SCHEMA {
+export function teacherSchema({password}: { password?: string } = {}): FORM_BUILDER_SCHEMA {
     return [
         {
             type: 'input_field',
             props: {
-                name: 'fio',
-                labelText: 'ФИО',
+                name: 'last_name',
+                labelText: 'Фамилия',
                 required: true,
             }
         },
         {
             type: 'input_field',
             props: {
-                name: 'institute',
-                labelText: 'Институт',
-                type: 'select',
-                options: [{value: 'ИТУС', label: 'ИТУС'}],
+                name: 'first_name',
+                labelText: 'Имя',
                 required: true,
             }
         },
         {
             type: 'input_field',
             props: {
-                name: 'department',
-                labelText: 'Кафедра',
-                type: 'select',
-                options: [{value: 'ПОВТАС', label: 'ПОВТАС'}],
+                name: 'patronymic',
+                labelText: 'Отчество',
                 required: true,
             }
         },
@@ -36,6 +32,16 @@ export function teacherSchema({password}:{ password?: string } = {}): FORM_BUILD
                 name: 'email',
                 type: 'email',
                 labelText: 'Email',
+                required: true,
+            }
+        },
+        {
+            type: 'input_field',
+            props: {
+                name: 'department_id',
+                labelText: 'Кафедра',
+                type: 'select',
+                options: [{value: 'ПОВТАС', label: 'ПОВТАС'}],
                 required: true,
             }
         },

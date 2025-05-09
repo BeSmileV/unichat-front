@@ -2,12 +2,20 @@
 
 import {useRef, useState} from "react";
 import {Button, UseIsErrorFieldIsErrorType} from "indicator-ui";
-import {RegistrationUniversityRequestType} from "@/entity/Registration";
+import {registerUniversity, RegistrationUniversityRequestType} from "@/entity/Registration";
 import {RegistrationForm, universitySchema} from "@/features/Registration";
 
 export function RegistrationUniversityWidget() {
     const formDataRef = useRef<RegistrationUniversityRequestType | undefined>(undefined)
     const [isError, setIsError] = useState<UseIsErrorFieldIsErrorType>([])
+
+    const onSubmit = async () => {
+        const formData = formDataRef.current
+        if (formData) {
+            const response = await registerUniversity(formData)
+            console.log(response)
+        }
+    }
 
     return (
         <>
@@ -19,6 +27,7 @@ export function RegistrationUniversityWidget() {
                     hierarchy={'primary'}
                     text={'Зарегистрировать университет'}
                     disabled={isError.length > 0}
+                    onClick={onSubmit}
                     width={'fill'}/>
         </>
     )

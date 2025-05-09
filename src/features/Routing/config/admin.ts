@@ -1,4 +1,5 @@
 export const ADMIN_ROUTES = {
+    ADMIN_BASE: '/admin',
     ADMIN_INSTITUTE: '/admin/institute',
     ADMIN_DEPARTMENT: '/admin/department',
     ADMIN_GROUPS: '/admin/groups',

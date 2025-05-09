@@ -13,8 +13,24 @@ export function universitySchema({password}:{ password?: string } = {}): FORM_BU
         {
             type: 'input_field',
             props: {
-                name: 'contact',
-                labelText: 'Контактное лицо (ФИО)',
+                name: 'last_name',
+                labelText: 'Контактное лицо (Фамилия)',
+                required: true,
+            }
+        },
+        {
+            type: 'input_field',
+            props: {
+                name: 'first_name',
+                labelText: 'Контактное лицо (Имя)',
+                required: true,
+            }
+        },
+        {
+            type: 'input_field',
+            props: {
+                name: 'patronymic',
+                labelText: 'Контактное лицо (Отчество)',
                 required: true,
             }
         },
@@ -40,7 +56,7 @@ export function universitySchema({password}:{ password?: string } = {}): FORM_BU
         {
             type: 'input_field',
             props: {
-                name: 'repeat_password',
+                name: 'password_repeat',
                 type: 'password',
                 labelText: 'Повтор пароля',
                 required: true,

@@ -1,26 +1,31 @@
 export type RegistrationUniversityRequestType = {
-    name: string,
-    contact: string,
+    first_name: string,
+    last_name: string,
+    patronymic: string,
     email: string,
     password: string,
-    repeat_password: string,
+    password_repeat: string,
+    name: string,
 }
 
 export type RegistrationTeacherRequestType = {
-    fio: string,
-    institute: string,
-    department: string,
+    first_name: string,
+    last_name: string,
+    patronymic: string,
     email: string,
     password: string,
-    repeat_password: string,
+    password_repeat: string,
+    department_id: number,
 }
 
 export type RegistrationStudentRequestType = {
-    fio: string,
-    group: string,
-    record_number: string,
-    student_number: string,
+    first_name: string,
+    last_name: string,
+    patronymic: string,
     email: string,
     password: string,
-    repeat_password: string,
+    password_repeat: string,
+    group_id: number,
+    record_book_number: string,
+    student_card: string,
 }
