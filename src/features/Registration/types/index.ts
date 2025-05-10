@@ -1,5 +1,5 @@
 import {FORM_BUILDER_SCHEMA, UseIsErrorFieldIsErrorType} from "indicator-ui";
-import {RegistrationUniversityRequestType} from "@/entity/Registration";
+import {RegistrationUniversityRequestType} from "@/entities/Registration";
 
 export type RegistrationTypesType = 'university' | 'teacher' | 'student'
 export type RegistrationFormPropsType<T> = {

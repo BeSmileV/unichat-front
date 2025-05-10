@@ -5,7 +5,7 @@ import {useRef, useState} from "react";
 import {Button, UseIsErrorFieldIsErrorType} from "indicator-ui";
 import {LogoSVG} from "@/shared/assets/icons";
 import {LoginForm} from "@/features/Login";
-import {LoginRequestType} from "@/entity/Login";
+import {LoginRequestType} from "@/entities/Login";
 import {LoginPageStyle} from "../styles";
 
 export function LoginPage() {

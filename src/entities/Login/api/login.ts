@@ -1,4 +1,4 @@
-import {LoginErrorResponseType, LoginRequestType, LoginResponseType} from "@/entity/Login";
+import {LoginErrorResponseType, LoginRequestType, LoginResponseType} from "@/entities/Login";
 
 type FunResponseType =
     | { data: LoginResponseType, success: true }

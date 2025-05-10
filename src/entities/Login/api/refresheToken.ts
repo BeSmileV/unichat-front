@@ -1,4 +1,4 @@
-import {RefreshTokenErrorResponseType, RefreshTokenRequestType, RefreshTokenResponseType} from "@/entity/Login";
+import {RefreshTokenErrorResponseType, RefreshTokenRequestType, RefreshTokenResponseType} from "@/entities/Login";
 
 type FunResponseType =
     | { data: RefreshTokenResponseType, success: true }

@@ -2,7 +2,7 @@
 
 import {useRef, useState} from "react";
 import {Button, UseIsErrorFieldIsErrorType} from "indicator-ui";
-import {registerTeacher, RegistrationTeacherRequestType} from "@/entity/Registration";
+import {registerTeacher, RegistrationTeacherRequestType} from "@/entities/Registration";
 import {RegistrationForm, teacherSchema} from "@/features/Registration";
 
 export function RegistrationTeacherWidget() {

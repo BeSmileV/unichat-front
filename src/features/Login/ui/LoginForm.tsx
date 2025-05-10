@@ -1,7 +1,7 @@
 'use client'
 
 import {FormBuilder} from "indicator-ui";
-import {LoginRequestType} from "@/entity/Login";
+import {LoginRequestType} from "@/entities/Login";
 import {schema} from "../schemes";
 import {LoginFormPropsType} from "../types";
 

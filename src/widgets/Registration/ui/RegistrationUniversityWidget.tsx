@@ -2,7 +2,7 @@
 
 import {useRef, useState} from "react";
 import {Button, UseIsErrorFieldIsErrorType} from "indicator-ui";
-import {registerUniversity, RegistrationUniversityRequestType} from "@/entity/Registration";
+import {registerUniversity, RegistrationUniversityRequestType} from "@/entities/Registration";
 import {RegistrationForm, universitySchema} from "@/features/Registration";
 
 export function RegistrationUniversityWidget() {

@@ -1,6 +1,6 @@
 import {JWT} from "next-auth/jwt";
 import {isTokenAvailable} from "@/shared/lib";
-import {refreshToken} from "@/entity/Login";
+import {refreshToken} from "@/entities/Login";
 
 export async function refreshingProcess(jwt: JWT): Promise<JWT> {
     if (jwt.refresh_token && isTokenAvailable(jwt.refresh_token)) {
