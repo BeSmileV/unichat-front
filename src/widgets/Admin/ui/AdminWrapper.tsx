@@ -3,6 +3,7 @@ import {NavBar, NavBarTabsType} from "@/shared/ui";
 import {Atom01SVG, CompassSVG, Glasses02SVG, GraduationHat01SVG, Link02SVG, Users01SVG} from "@/shared/assets";
 import {ROUTES_CONFIG} from "@/features/Routing";
 import {AdminWrapperStyle} from '../styles'
+import {AdminHeader} from "./AdminHeader";
 
 export function AdminWrapper({children}: { children?: React.ReactNode }) {
     const tabs: NavBarTabsType = [
@@ -17,7 +18,10 @@ export function AdminWrapper({children}: { children?: React.ReactNode }) {
     return (
         <div className={AdminWrapperStyle.AdminWrapper}>
             <NavBar tabs={tabs}/>
-            <div className={AdminWrapperStyle.content}>{children}</div>
+            <div className={AdminWrapperStyle.wrapper}>
+                <AdminHeader/>
+                <div className={AdminWrapperStyle.content}>{children}</div>
+            </div>
         </div>
     )
 }

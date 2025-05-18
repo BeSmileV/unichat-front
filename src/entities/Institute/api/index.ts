@@ -1,0 +1,6 @@
+export * from './getInstituteDetail'
+export * from './postInstitute'
+export * from './patchInstitute'
+export * from './getInstituteDetail'
+export * from './getInstituteList'
+export * from './deleteInstitute'

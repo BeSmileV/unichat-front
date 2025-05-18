@@ -1,0 +1,6 @@
+export * from './getDepartmentDetail'
+export * from './postDepartment'
+export * from './patchDepartment'
+export * from './getDepartmentDetail'
+export * from './getDepartmentList'
+export * from './deleteDepartment'

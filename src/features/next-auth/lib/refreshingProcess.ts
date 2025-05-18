@@ -1,10 +1,10 @@
 import {JWT} from "next-auth/jwt";
 import {isTokenAvailable} from "@/shared/lib";
-import {refreshToken} from "@/entities/Login";
+import {rotateToken} from "@/entities/Auth";
 
 export async function refreshingProcess(jwt: JWT): Promise<JWT> {
     if (jwt.refresh_token && isTokenAvailable(jwt.refresh_token)) {
-        const refreshResponse = await refreshToken({refresh_token:jwt.refresh_token})
+        const refreshResponse = await rotateToken({refresh_token:jwt.refresh_token})
         if (refreshResponse?.success) {
             return refreshResponse.data
         } else {

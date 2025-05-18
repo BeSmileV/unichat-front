@@ -2,8 +2,12 @@
 
 import {useSearchParamsListener} from "@/shared/hooks";
 import {LogoSVG} from "@/shared/assets";
-import {REGISTRATION_TYPE_PARAM_NAME} from "@/features/Registration";
-import {RegistrationTypesType} from "@/features/Registration/types";
+import {RegistrationQueryType} from "@/entities/Auth";
+import {
+    REGISTRATION_INVITE_ID_PARAM_NAME,
+    REGISTRATION_TYPE_PARAM_NAME,
+    RegistrationTypesType
+} from "@/features/Registration";
 import {
     RegistrationStudentWidget,
     RegistrationTeacherWidget,
@@ -14,13 +18,19 @@ import {RegistrationPageStyle} from "../styles";
 export function RegistrationPage() {
     const {getSearchParams} = useSearchParamsListener()
 
+    const getInviteId = () => {
+        const value = getSearchParams(REGISTRATION_INVITE_ID_PARAM_NAME)
+        return value ? String(value) : null
+    }
+
     const getForm = () => {
         const type = getSearchParams(REGISTRATION_TYPE_PARAM_NAME) as RegistrationTypesType
+        const inviteId = getInviteId()
         switch (type) {
             case "teacher":
-                return <RegistrationTeacherWidget/>
+                return <RegistrationTeacherWidget inviteId={inviteId}/>
             case "student":
-                return <RegistrationStudentWidget/>
+                return <RegistrationStudentWidget inviteId={inviteId}/>
             case "university":
             default:
                 return <RegistrationUniversityWidget/>

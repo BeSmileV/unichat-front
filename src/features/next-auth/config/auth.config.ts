@@ -1,7 +1,7 @@
 import {CredentialsSignin, NextAuthConfig} from 'next-auth'
 import {JWT} from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials";
-import {login} from "@/entities/Login";
+import {login} from "@/entities/Auth";
 import {refreshingProcess} from "../lib";
 
 export class InvalidLoginError extends CredentialsSignin {

@@ -13,4 +13,10 @@ export const ADMIN_ROUTES = {
     ADMIN_GROUPS_DETAIL_SLUG: '/admin/groups/',
     ADMIN_TEACHER_DETAIL_SLUG: '/admin/teacher/',
     ADMIN_STUDENT_DETAIL_SLUG: '/admin/student/',
+
+    ADMIN_INSTITUTE_CREATE: '/admin/institute/create',
+    ADMIN_DEPARTMENT_CREATE: '/admin/department/create',
+    ADMIN_GROUPS_CREATE: '/admin/groups/create',
+    ADMIN_TEACHER_CREATE: '/admin/teacher/create',
+    ADMIN_STUDENT_CREATE: '/admin/student/create',
 }

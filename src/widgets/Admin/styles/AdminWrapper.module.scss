@@ -3,10 +3,16 @@
 .AdminWrapper {
   width: 100%;
   height: 100%;
-  @include modify-flex();
+  display: grid;
+  grid-template-columns: auto 1fr;
 
-  .content {
-    flex: 1;
-    height: 100%;
+  .wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    .content {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

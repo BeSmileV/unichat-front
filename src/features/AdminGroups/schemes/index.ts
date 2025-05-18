@@ -5,14 +5,6 @@ export function groupsSchema (): FORM_BUILDER_SCHEMA {
         {
             type: 'input_field',
             props: {
-                name: 'id',
-                labelText: 'id',
-                disabled: true,
-            }
-        },
-        {
-            type: 'input_field',
-            props: {
                 name: 'name',
                 labelText: 'Название',
             }
@@ -20,15 +12,7 @@ export function groupsSchema (): FORM_BUILDER_SCHEMA {
         {
             type: 'input_field',
             props: {
-                name: 'institute',
-                labelText: 'Институт',
-            }
-        },
-        {
-            type: 'input_field',
-            props: {
                 name: 'department',
-                labelText: 'Кафедра',
             }
         },
     ]

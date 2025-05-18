@@ -5,7 +5,7 @@ import {useRef, useState} from "react";
 import {Button, UseIsErrorFieldIsErrorType} from "indicator-ui";
 import {LogoSVG} from "@/shared/assets/icons";
 import {LoginForm} from "@/features/Login";
-import {LoginRequestType} from "@/entities/Login";
+import {LoginRequestType} from "@/entities/Auth";
 import {LoginPageStyle} from "../styles";
 
 export function LoginPage() {
@@ -22,7 +22,6 @@ export function LoginPage() {
         } else {
             // Успешная аутентификации
         }
-
     }
 
     return (

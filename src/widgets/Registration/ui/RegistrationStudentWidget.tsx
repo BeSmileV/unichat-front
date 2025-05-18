@@ -1,25 +1,30 @@
 'use client'
 
-import {useRef, useState} from "react";
-import {Button, UseIsErrorFieldIsErrorType} from "indicator-ui";
-import {registerStudent, RegistrationStudentRequestType} from "@/entities/Registration";
+import {Button} from "indicator-ui";
+import {registerStudent, RegistrationStudentRequestBodyType} from "@/entities/Auth";
 import {RegistrationForm, studentSchema} from "@/features/Registration";
+import {RegistrationPropsType} from "../types";
+import {useRegistrationStudentAndTeacher} from "@/widgets/Registration/hooks";
 
-export function RegistrationStudentWidget() {
-    const formDataRef = useRef<RegistrationStudentRequestType | undefined>(undefined)
-    const [isError, setIsError] = useState<UseIsErrorFieldIsErrorType>([])
+export function RegistrationStudentWidget({inviteId}: RegistrationPropsType) {
+    const {initData, onSubmit, isError, setIsError, formDataRef} = useRegistrationStudentAndTeacher<typeof registerStudent>({
+        inviteId,
+        registrationRequest: registerStudent
+    })
 
-    const onSubmit = async () => {
-        const formData = formDataRef.current
-        if (formData) {
-            const response = await registerStudent(formData)
-            console.log(response)
-        }
+    if (initData === undefined) {
+        return 'Loading'
+    }
+
+    if (initData) {
+        // Неверное приглашение или оно истекло
+        return 'Error'
     }
 
     return (
         <>
-            <RegistrationForm<RegistrationStudentRequestType>
+            <RegistrationForm<RegistrationStudentRequestBodyType>
+                formDataDefault={formDataRef.current}
                 schema={studentSchema({password: formDataRef.current?.password})}
                 onChangeFormData={(data) => formDataRef.current = data}
                 onChangeIsError={setIsError}/>

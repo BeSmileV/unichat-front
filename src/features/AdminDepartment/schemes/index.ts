@@ -5,14 +5,6 @@ export function departmentSchema (): FORM_BUILDER_SCHEMA {
         {
             type: 'input_field',
             props: {
-                name: 'id',
-                labelText: 'id',
-                disabled: true,
-            }
-        },
-        {
-            type: 'input_field',
-            props: {
                 name: 'name',
                 labelText: 'Название',
             }

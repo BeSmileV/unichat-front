@@ -1,6 +1,5 @@
 import {UseIsErrorFieldIsErrorType} from "indicator-ui";
-import {RegistrationUniversityRequestType} from "@/entities/Registration";
-import {LoginRequestType} from "@/entities/Login";
+import {LoginRequestType} from "@/entities/Auth";
 
 export type LoginFormPropsType = {
     onChangeFormData?: (data: LoginRequestType) => void,

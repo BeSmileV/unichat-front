@@ -1,16 +1,19 @@
 @use 'indicator-ui' as *;
 
 .AdminDetailPage {
-  width: 100%;
+  width: 480px;
   height: 100%;
   padding: 16px 32px;
   gap: 32px;
-  @include modify-flex();
+  @include modify-flex($direction: column);
 
   .content {
-    width: 480px;
+    width: 100%;
     height: fit-content;
     gap: 16px;
+    border-radius: 16px;
+    padding: 24px 16px 32px 16px;
+    background-color: var(--gray-50);
     @include modify-flex($direction: column);
 
     .header {
@@ -23,12 +26,9 @@
   }
 
   .action {
-    width: 480px;
+    width: 100%;
     height: fit-content;
     gap: 16px;
-    padding: 24px 32px 32px 32px;
-    border-radius: 16px;
-    background-color: var(--gray-50);
     @include modify-flex($direction: column);
 
     .header {

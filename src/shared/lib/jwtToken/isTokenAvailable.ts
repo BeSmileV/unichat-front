@@ -1,5 +1,5 @@
 import {jwtDecode} from "jwt-decode";
-import {JwtPayloadType} from "@/entities/Login";
+import {JwtPayloadType} from "@/entities/Auth";
 import {checkJwtLifeTime} from "./checkJwtLifeTime";
 
 export function isTokenAvailable(token?: string, errorRateSeconds: number = 5) {

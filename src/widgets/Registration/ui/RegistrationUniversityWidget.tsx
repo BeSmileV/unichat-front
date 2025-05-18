@@ -1,25 +1,16 @@
 'use client'
 
-import {useRef, useState} from "react";
-import {Button, UseIsErrorFieldIsErrorType} from "indicator-ui";
-import {registerUniversity, RegistrationUniversityRequestType} from "@/entities/Registration";
+import {Button} from "indicator-ui";
+import {RegistrationUniversityRequestBodyType} from "@/entities/Auth";
 import {RegistrationForm, universitySchema} from "@/features/Registration";
+import {useRegistrationUnivercity} from "../hooks";
 
 export function RegistrationUniversityWidget() {
-    const formDataRef = useRef<RegistrationUniversityRequestType | undefined>(undefined)
-    const [isError, setIsError] = useState<UseIsErrorFieldIsErrorType>([])
-
-    const onSubmit = async () => {
-        const formData = formDataRef.current
-        if (formData) {
-            const response = await registerUniversity(formData)
-            console.log(response)
-        }
-    }
+    const {formDataRef, setIsError, isError, onSubmit} = useRegistrationUnivercity()
 
     return (
         <>
-            <RegistrationForm<RegistrationUniversityRequestType>
+            <RegistrationForm<RegistrationUniversityRequestBodyType>
                 schema={universitySchema({password: formDataRef.current?.password})}
                 onChangeFormData={(data) => formDataRef.current = data}
                 onChangeIsError={setIsError}/>

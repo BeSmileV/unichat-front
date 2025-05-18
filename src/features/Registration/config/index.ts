@@ -1,1 +1,2 @@
 export const REGISTRATION_TYPE_PARAM_NAME = 'type'
+export const REGISTRATION_INVITE_ID_PARAM_NAME = 'type'
