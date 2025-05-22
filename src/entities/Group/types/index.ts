@@ -1,23 +1,28 @@
-export type CreateGroupType = {
-    department_id: number,
+export type GroupType = {
+    id: number,
     name: string,
-}
-export type PatchGroupType = Partial<CreateGroupType>
-export type GroupDetailType = Omit<CreateGroupType, 'department_id'> & {
-    institute: {
-        id: number,
-        name: string,
-    }
     department: {
         id: number,
         name: string,
+        institute: {
+            id: number,
+            name: string,
+        }
     }
 }
-export type GroupsListItemType = Omit<CreateGroupType, 'department_id'> & {
-    institute_name: string
-    department_name: string
+
+export type GroupPostType = {
+    department_id: number,
+    name: string,
 }
+export type GroupPatchType = Partial<GroupPostType>
+export type GroupDetailType = GroupType
 export type GroupsListType = {
     total_count: number,
-    list: Array<GroupsListItemType>
+    data: Array<GroupDetailType>
+}
+export type GroupsListFiltersType = {
+    name__ilike?: string,
+    institute_id?: number,
+    department_id?: number,
 }

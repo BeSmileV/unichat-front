@@ -1,7 +1,13 @@
 import {FORM_BUILDER_SCHEMA, UseIsErrorFieldIsErrorType} from "indicator-ui";
 import {RegistrationUniversityRequestBodyType} from "@/entities/Auth";
 
-export type RegistrationTypesType = 'university' | 'teacher' | 'student'
+
+export enum REGISTRATION_TYPE {
+    UNIVERSITY = 'university',
+    TEACHER = 'teacher',
+    STUDENT = 'student',
+}
+export type RegistrationTypesType = REGISTRATION_TYPE
 export type RegistrationFormPropsType<T> = {
     onChangeFormData?: (data: T) => void,
     formDataDefault?: T,

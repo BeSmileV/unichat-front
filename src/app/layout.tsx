@@ -3,6 +3,8 @@ import type {Metadata} from "next";
 import {Providers} from "@/features/Providers";
 import "./globals.scss";
 
+import "@/features/next-auth/assetes/tokenState"
+
 export const metadata: Metadata = {
     title: "Unichat",
     description: "Диплом",

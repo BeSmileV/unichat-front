@@ -1,5 +1,8 @@
 'use client'
 
+import {isTokenAvailable} from "@/shared/lib";
+import {getClientSession} from "@/features/next-auth";
+
 type AdditionHeaderType = { [key: string]: string }
 type SendRequestPropsType = {
     data?: any,
@@ -28,7 +31,15 @@ const getHeader = async (data: any, additionHeader: AdditionHeaderType, dropJWT:
 }> => {
     let tokenData = {}
     if (!dropJWT) {
-
+        const token = await getClientSession()
+        console.log(token)
+        if (!token || token.error != null) {
+            // redirectToLogin()
+        } else {
+            const access_token = token?.access_token
+            const token_type = token?.token_type
+            tokenData = isTokenAvailable(access_token) && token_type ? {Authorization: `${token_type} ${access_token}`} : {}
+        }
     }
 
     return {...getContentType(data), ...tokenData, ...additionHeader}

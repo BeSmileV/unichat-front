@@ -33,16 +33,7 @@ export function studentSchema({password}:{ password?: string } = {}): FORM_BUILD
                 type: 'email',
                 labelText: 'Email',
                 required: true,
-            }
-        },
-        {
-            type: 'input_field',
-            props: {
-                name: 'group_id',
-                labelText: 'Группа',
-                type: 'select',
-                options: [{value: 'ПВ-212', label: 'ПВ-212'}],
-                required: true,
+                disabled: true,
             }
         },
         {
@@ -73,7 +64,7 @@ export function studentSchema({password}:{ password?: string } = {}): FORM_BUILD
         {
             type: 'input_field',
             props: {
-                name: 'repeat_password',
+                name: 'password_repeat',
                 type: 'password',
                 labelText: 'Повтор пароля',
                 required: true,

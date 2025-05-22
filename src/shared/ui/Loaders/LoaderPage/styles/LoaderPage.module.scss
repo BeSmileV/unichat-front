@@ -1,0 +1,12 @@
+@use 'indicator-ui' as *;
+
+.loaderPage {
+  width: 100%;
+  height: 100%;
+  @include centerInsideContent();
+  @include modify-svg($stroke: $blue-dark-500) {
+    width: 60px;
+    height: 60px;
+    flex: none;
+  }
+}

@@ -10,7 +10,6 @@ export default async function middleware(request: NextRequest) {
         '/assets',
     ]
     const pathname = request.nextUrl.pathname
-
     if (availableUrls.find(item => pathname.startsWith(item)) || pathname === '/') {
         return NextResponse.next()
     }

@@ -1,26 +1,19 @@
 'use client'
 
-import {Table, TableBodyType, TableHeaderType} from "@/shared/ui";
-import {PaginationComponent} from "@/shared/ui/PaginationBar";
+import {Table} from "@/shared/ui";
+import {PaginationComponent} from "@/shared/ui";
 import {AdminListPageStyle} from "@/features/Admin";
-import {useRouter} from "next/navigation";
-import {ROUTES_CONFIG} from "@/features/Routing";
+import {useListAdminDepartment} from "../hooks";
 
 export function AdminDepartmentPage() {
-    const router = useRouter();
+    const {data, body, onClickRow, header} = useListAdminDepartment()
 
-    const header: TableHeaderType = [
-        {type: 'description', label: 'id'},
-        {type: 'description', label: 'Название'},
-        {type: 'description', label: 'Институт'},
-    ]
+    if (data === undefined) {
+        return 'Loading'
+    }
 
-    const body: TableBodyType = [
-        [{type: 'field', label: '1'}, {type: 'field', label: 'ПОВТАС'}, {type: 'field', label: 'ИТУС'}],
-    ]
-
-    const onClickRow = (idx: number) => {
-        router.push(ROUTES_CONFIG.ADMIN_DEPARTMENT_DETAIL_SLUG + `${idx}`)
+    if (data === null) {
+        return 'Error'
     }
 
     return (
@@ -28,7 +21,7 @@ export function AdminDepartmentPage() {
             <div className={AdminListPageStyle.table}>
                 <Table header={header} body={body} onClickRow={onClickRow}/>
             </div>
-            <PaginationComponent totalCount={100}/>
+            <PaginationComponent totalCount={data.total_count}/>
         </div>
     )
 }

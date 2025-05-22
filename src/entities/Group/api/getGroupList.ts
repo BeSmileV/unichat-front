@@ -1,15 +1,21 @@
 import {sendRequest} from "@/shared/api";
-import {GroupsListType} from "../types";
+import {GroupsListFiltersType, GroupsListType} from "../types";
+import {toURLSearchParams} from "@/shared/lib";
 
 type PropsType = {
     skip: number,
     limit: number,
-    filters?: string,
+    filters?: string | GroupsListFiltersType,
 }
 
 export async function getGroupList({skip, limit, filters}: PropsType): Promise<GroupsListType | null> {
-    const queryParams = new URLSearchParams({skip: String(skip), limit: String(limit)});
-    const url = process.env.NEXT_PUBLIC_BACKEND_API + `/university/departments?${queryParams.toString()}`;
+    let resFilers = {skip, limit}
+    if (typeof filters !== 'string') {
+        resFilers = {...resFilers, ...filters}
+    }
+
+    const queryParams = toURLSearchParams(resFilers);
+    const url = process.env.NEXT_PUBLIC_BACKEND_API + `/university/groups?${queryParams.toString()}`;
     const response = await sendRequest({url, type: 'GET'});
     return response?.ok ? response.json() : null
 }

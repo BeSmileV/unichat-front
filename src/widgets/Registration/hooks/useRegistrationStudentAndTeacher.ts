@@ -3,7 +3,8 @@ import {UseIsErrorFieldIsErrorType} from "indicator-ui";
 import {signIn} from "next-auth/react";
 import {
     getInviteInfo,
-    InviteRequestBodyType,
+    InviteStudentRequestBodyType,
+    InviteTeacherRequestBodyType,
     LoginRequestType,
     registerStudent,
     registerTeacher,
@@ -14,20 +15,20 @@ import {
 import {UseRegistrationPropsType} from "../types";
 
 export function useRegistrationStudentAndTeacher<T extends typeof registerTeacher | typeof registerStudent>({
-                                                                                                      inviteId,
-                                                                                                      registrationRequest,
-                                                                                                  }: UseRegistrationPropsType<T>) {
-    type FormDataType = Parameters<T>[0]
+                                                                                                                inviteId,
+                                                                                                                registrationRequest,
+                                                                                                            }: UseRegistrationPropsType<T>) {
+    type FormDataType = Parameters<T>[1]
+    type InviteBodyType = T extends typeof registerTeacher ? InviteTeacherRequestBodyType : InviteStudentRequestBodyType
     const formDataRef = useRef<Omit<FormDataType, 'invite_id'> | undefined>(undefined)
     const [isError, setIsError] = useState<UseIsErrorFieldIsErrorType>([])
-
-    const [initData, setInitData] = useState<InviteRequestBodyType['invite_body'] | null | undefined>(undefined)
+    const [initData, setInitData] = useState<InviteBodyType | null | undefined>(undefined)
 
     useEffect(() => {
         const getInitData = async () => {
             let response
             if (inviteId) {
-                response = await getInviteInfo({invite_id: inviteId})
+                response = await getInviteInfo({invite_id: inviteId}) as InviteBodyType
             } else {
                 response = null
             }
@@ -41,9 +42,8 @@ export function useRegistrationStudentAndTeacher<T extends typeof registerTeache
         if (formData && inviteId) {
             // Пришлось заткнуть ts так как ему мозгов не хватает сопоставить тип T и функции,
             // а также из-за отсутствия полноценной типизации именно function
-            const response = await registrationRequest({
+            const response = await registrationRequest({invite_id: inviteId}, {
                 ...formData,
-                invite_id: inviteId
             } as unknown as (RegistrationQueryType & RegistrationTeacherRequestBodyType & RegistrationStudentRequestBodyType))
 
             if (response) {

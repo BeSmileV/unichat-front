@@ -30,7 +30,7 @@ export function AdminInvitesPage() {
 
     return (
         <div className={AdminDetailPageStyle.AdminDetailPage}>
-            <div className={clsx(AdminDetailPageStyle.content, AdminDetailPageStyle.fill)}>
+            <div className={clsx(AdminDetailPageStyle.content, AdminDetailPageStyle.fill, AdminDetailPageStyle.offWrapper)}>
                 <h1 className={AdminDetailPageStyle.header}>Создание приглашений</h1>
                 <ActionField title={'Пригласить преподавателя'}
                              subtitle={'Сформировать ссылку, по которой преподаватель может пройти регистрацию'}

@@ -1,0 +1,1 @@
+export {default as LoaderSpinnerStyle} from './LoaderSpinner.module.scss'

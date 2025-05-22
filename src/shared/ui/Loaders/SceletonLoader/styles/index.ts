@@ -1,0 +1,1 @@
+export {default as SkeletonLoaderStyle} from './SceletonLoader.module.scss'

@@ -1,11 +1,14 @@
 'use client'
 
-import {Button, InputField, MicroButton} from "indicator-ui";
+import {Button, FormBuilder, InputField, MicroButton} from "indicator-ui";
 import {Copy06SVG, XCloseSVG} from "@/shared/assets";
-import {InviteStudentsForm} from "@/features/AdminInvites";
+import {inviteStudentsScheme} from "@/features/AdminInvites";
 import {InviteStyle} from "../styles";
+import {useCreateStudentInvites} from "@/widgets/AdminInvites/hooks/useCreateStudentInvites";
 
 export function CreateStudentsInvites({onClose}: { onClose?: () => void }) {
+    const {onSend, inviteUrl, onCopy, onChangeFormData} = useCreateStudentInvites()
+
     return (
         <div className={InviteStyle.invite}>
             <MicroButton size={'28'}
@@ -15,15 +18,18 @@ export function CreateStudentsInvites({onClose}: { onClose?: () => void }) {
                          onClick={onClose}/>
             <h3 className={InviteStyle.header}>Пригласить студентов</h3>
             <div className={InviteStyle.form}>
-                <InviteStudentsForm/>
+                <FormBuilder onChange={onChangeFormData} schema={inviteStudentsScheme({})}/>
             </div>
             <Button size={'large'}
                     hierarchy={'primary'}
                     width={'fill'}
+                    onClick={onSend}
                     text={'Сформировать ссылку'}/>
             <InputField labelText={'Ссылка'}
+                        value={inviteUrl}
                         help={<Button size={'small'}
-                                      hierarchy={'primary'}
+                                      onClick={onCopy}
+                                      hierarchy={'secondary-color'}
                                       iconLeft={<Copy06SVG/>}/>}/>
         </div>
     )

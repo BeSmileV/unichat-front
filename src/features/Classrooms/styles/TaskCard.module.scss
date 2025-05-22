@@ -1,0 +1,43 @@
+@use 'indicator-ui' as *;
+
+.TaskCard {
+  width: 100%;
+  height: fit-content;
+  border-radius: 8px;
+  overflow: hidden;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--base-white);
+  border: 1px solid var(--gray-300);
+  @include modify-flex($align-items: center);
+
+  .icon {
+    @include centerInsideContent;
+    @include modify-svg($stroke: var(--gray-500)) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .main {
+    flex: 1;
+    gap: 2px;
+    @include modify-flex($direction: column);
+
+    .title, .deadline {
+      width: 100%;
+      text-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .title {
+      @include fnt($size: 16, $line-height: 16, $weight: 500, $color: var(--gray-900));
+
+    }
+
+    .deadline {
+      @include fnt($size: 14, $line-height: 16, $weight: 400, $color: var(--gray-500));
+    }
+  }
+}

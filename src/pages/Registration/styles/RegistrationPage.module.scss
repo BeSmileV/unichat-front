@@ -36,6 +36,8 @@
     @include modify-flex($direction: column);
 
     .header {
+      width: 100%;
+      text-align: center;
       @include fnt($size: 24, $line-height: 32, $weight: 400, $color: var(--gray-900), $family: $golos-text);
     }
   }

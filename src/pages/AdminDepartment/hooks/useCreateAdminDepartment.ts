@@ -1,13 +1,14 @@
 import {useRef} from "react";
 import {useRouter} from "next/navigation";
-import {CreateDepartmentType, postDepartment} from "@/entities/Department";
+import {InstituteType, postInstitute} from "@/entities/Institute";
 import {ROUTES_CONFIG} from "@/features/Routing";
+import {DepartmentPostType, postDepartment} from "@/entities/Department";
 
 export function useCreateAdminDepartment() {
     const router = useRouter()
-    const formDataRef = useRef<CreateDepartmentType | undefined>(undefined);
+    const formDataRef = useRef<DepartmentPostType | undefined>(undefined);
 
-    const onChangeFormData = (newFormData: CreateDepartmentType) => {
+    const onChangeFormData = (newFormData: DepartmentPostType) => {
         formDataRef.current = newFormData;
     }
 
@@ -15,8 +16,8 @@ export function useCreateAdminDepartment() {
         const formData = formDataRef.current;
         if (formData) {
             const response = await postDepartment(formData);
-            if (response) {
-                router.push(ROUTES_CONFIG.ADMIN_GROUPS);
+            if (response !== null) {
+                router.push(ROUTES_CONFIG.ADMIN_DEPARTMENT_DETAIL_SLUG + response);
             }
         }
     }

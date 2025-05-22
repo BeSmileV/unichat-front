@@ -2,6 +2,7 @@ export type ClassroomType = {
     id: number,
     name: string,
     description: string,
+    avatar: string | null,
     group_id: number,
 }
 

@@ -1,0 +1,29 @@
+@use 'src/shared/styles/colors' as *;
+
+$start-deg: -90;
+.loaderSpinner {
+  width: 48px;
+  height: 48px;
+  transform: rotate(#{$start-deg}deg);
+
+  .loaderBackground {
+    stroke: $gray-300;
+  }
+
+  .loaderProgress {
+    stroke: $media-500;
+  }
+
+  &.addAnimation {
+    animation: spinner-animation 1.5s infinite linear;
+  }
+}
+
+@keyframes spinner-animation {
+  from {
+    transform: rotate(#{$start-deg+ 0}deg);
+  }
+  to {
+    transform: rotate(#{$start-deg+ 360}deg);
+  }
+}

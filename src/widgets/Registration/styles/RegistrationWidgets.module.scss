@@ -1,0 +1,8 @@
+@use 'indicator-ui' as *;
+
+.inviteInfoHeader {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include fnt($size: 20, $line-height: 28, $weight: 400, $color: var(--gray-900));
+}

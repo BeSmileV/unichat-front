@@ -17,5 +17,6 @@ export function RegistrationForm<T extends | RegistrationStudentRequestBodyType 
     return <FormBuilder<T> schema={schema}
                            formDataDefault={formDataDefault}
                            onChange={onChangeFormData}
+                           clearForm={true}
                            onChangeIsError={onChangeIsError}/>
 }

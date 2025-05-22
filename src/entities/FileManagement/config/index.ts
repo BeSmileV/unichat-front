@@ -1,0 +1,1 @@
+export const UPLOAD_FILE_CHUNK_SIZE_BYTES = 5 * 1024 * 1024;

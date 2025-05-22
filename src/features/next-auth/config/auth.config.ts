@@ -62,7 +62,7 @@ export const authConfig: NextAuthConfig = {
                 return await refreshingProcess(token)
             }
 
-            return token
+            return {...token, error: null}
         },
         async session({token, session}) {
             if (token) {

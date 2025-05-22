@@ -12,9 +12,7 @@ export function AdminGroupCreatePage() {
         <div className={AdminDetailPageStyle.AdminDetailPage}>
             <div className={AdminDetailPageStyle.content}>
                 <h1 className={AdminDetailPageStyle.header}>Создание Группы</h1>
-                <FormBuilder schema={groupsSchema()} onChange={onChangeFormData}/>
-            </div>
-            <div className={AdminDetailPageStyle.action}>
+                <FormBuilder schema={groupsSchema({})} onChange={onChangeFormData}/>
                 <Button onClick={onSend} text={'Создать'} size={'large'} width={'fill'}/>
             </div>
         </div>

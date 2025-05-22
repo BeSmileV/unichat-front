@@ -1,25 +1,19 @@
 'use client'
 
-import {useRouter} from "next/navigation";
-import {Table, TableBodyType, TableHeaderType} from "@/shared/ui";
-import {PaginationComponent} from "@/shared/ui/PaginationBar";
+import {Table} from "@/shared/ui";
+import {PaginationComponent} from "@/shared/ui";
 import {AdminListPageStyle} from "@/features/Admin";
-import {ROUTES_CONFIG} from "@/features/Routing";
+import {useListAdminInstitute} from "../hooks";
 
 export function AdminInstitutePage() {
-    const router = useRouter()
+    const {data, body, onClickRow, header} = useListAdminInstitute()
 
-    const header: TableHeaderType = [
-        {type: 'description', label: 'id'},
-        {type: 'description', label: 'Название'},
-    ]
+    if (data === undefined) {
+        return 'Loading'
+    }
 
-    const body: TableBodyType = [
-        [{type: 'field', label: '1'}, {type: 'field', label: 'ИИТУС'}]
-    ]
-
-    const onClickRow = (idx: number) => {
-        router.push(ROUTES_CONFIG.ADMIN_INSTITUTE_DETAIL_SLUG + `${idx}`)
+    if (data === null) {
+        return 'Error'
     }
 
     return (
@@ -27,7 +21,7 @@ export function AdminInstitutePage() {
             <div className={AdminListPageStyle.table}>
                 <Table header={header} body={body} onClickRow={onClickRow}/>
             </div>
-            <PaginationComponent totalCount={100}/>
+            <PaginationComponent totalCount={data.total_count}/>
         </div>
     )
 }

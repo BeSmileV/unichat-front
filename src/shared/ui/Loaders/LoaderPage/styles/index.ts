@@ -1,0 +1,1 @@
+export {default as LoaderPageStyle } from './LoaderPage.module.scss'

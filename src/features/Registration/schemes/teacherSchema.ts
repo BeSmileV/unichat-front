@@ -33,16 +33,7 @@ export function teacherSchema({password}: { password?: string } = {}): FORM_BUIL
                 type: 'email',
                 labelText: 'Email',
                 required: true,
-            }
-        },
-        {
-            type: 'input_field',
-            props: {
-                name: 'department_id',
-                labelText: 'Кафедра',
-                type: 'select',
-                options: [{value: 'ПОВТАС', label: 'ПОВТАС'}],
-                required: true,
+                disabled: true,
             }
         },
         {
@@ -57,7 +48,7 @@ export function teacherSchema({password}: { password?: string } = {}): FORM_BUIL
         {
             type: 'input_field',
             props: {
-                name: 'repeat_password',
+                name: 'password_repeat',
                 type: 'password',
                 labelText: 'Повтор пароля',
                 required: true,

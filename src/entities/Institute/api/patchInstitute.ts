@@ -1,8 +1,8 @@
 import {sendRequest} from "@/shared/api";
-import {PatchInstituteType} from "../types";
+import {InstituteDetailType, InstitutePatchType} from "../types";
 
 type PropsType = {
-    data: PatchInstituteType,
+    data: InstitutePatchType,
     id: number,
 }
 

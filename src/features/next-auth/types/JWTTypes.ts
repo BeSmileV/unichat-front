@@ -1,3 +1,5 @@
+import {UserRolesType} from "@/entities/User";
+
 export type AuthJWTErrorTypes = 'refresh-exp' | 'refresh-error' | 'another'
 export type AuthJWTErrorType = { type: AuthJWTErrorTypes, detail?: string } | null
 export type TokenType = {
@@ -11,7 +13,12 @@ export type ErrorResponseType = {
         type: string
     }[]
 }
+
+
 export type AccessTokenPayloadType = {
+    user_id: number,
+    role: UserRolesType,
+    university_id: number,
     exp: number
 }
 export type RefreshTokenResponseType = TokenType | ErrorResponseType
